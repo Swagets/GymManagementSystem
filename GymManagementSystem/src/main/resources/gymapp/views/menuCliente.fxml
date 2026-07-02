@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gymapp.controllers.MenuClienteController">
+    <children>
+        <Button text="Mis Datos" layoutX="50" layoutY="50" onAction="#showDatos"/>
+        <Button text="Mi Rutina" layoutX="50" layoutY="100" onAction="#showRutina"/>
+        <Button text="Cerrar Sesión" layoutX="50" layoutY="150" onAction="#logout"/>
+    </children>
+</AnchorPane>
