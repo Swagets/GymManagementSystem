@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gymapp.controllers.MenuEntrenadorController">
+    <children>
+        <Button text="Gestión de Clientes" layoutX="50" layoutY="50" onAction="#openClientes"/>
+        <Button text="Gestión de Rutinas" layoutX="50" layoutY="100" onAction="#openRutinas"/>
+        <Button text="Asignación de Rutinas" layoutX="50" layoutY="150" onAction="#openAsignaciones"/>
+        <Button text="Cerrar Sesión" layoutX="50" layoutY="200" onAction="#logout"/>
+    </children>
+</AnchorPane>

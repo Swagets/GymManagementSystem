@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gymapp.controllers.LoginController">
+    <children>
+        <Label text="Usuario:" layoutX="50" layoutY="50"/>
+        <TextField fx:id="txtUsuario" layoutX="150" layoutY="50"/>
+
+        <Label text="Contraseña:" layoutX="50" layoutY="100"/>
+        <PasswordField fx:id="txtPassword" layoutX="150" layoutY="100"/>
+
+        <Button text="Ingresar" layoutX="150" layoutY="150" onAction="#handleLogin"/>
+    </children>
+</AnchorPane>
