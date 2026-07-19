@@ -12,7 +12,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class ClientesController {
+public class    ClientesController {
 
     @FXML
     private TableView<Cliente> tablaClientes;

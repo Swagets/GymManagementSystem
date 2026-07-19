@@ -41,6 +41,28 @@ CREATE TABLE rutinas (
 );
 
 -- ==========================================
+-- NUEVA TABLA: asignaciones
+-- ==========================================
+
+CREATE TABLE asignaciones (
+                              id INT AUTO_INCREMENT PRIMARY KEY,
+
+                              cliente_id INT NOT NULL,
+
+                              rutina_id INT NOT NULL,
+
+                              fecha_inicio DATE NOT NULL,
+
+                              fecha_fin DATE NOT NULL,
+
+                              estado ENUM('ACTIVA','FINALIZADA') DEFAULT 'ACTIVA',
+
+                              FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+
+                              FOREIGN KEY (rutina_id) REFERENCES rutinas(id)
+);
+
+-- ==========================================
 -- Datos iniciales
 -- ==========================================
 
@@ -61,3 +83,14 @@ VALUES
     ('Cardio Basico', 'Perder peso', 30),
     ('Hipertrofia', 'Ganar masa muscular', 60),
     ('Funcional', 'Mejorar resistencia', 45);
+
+-- ==========================================
+-- Datos de prueba para asignaciones
+-- ==========================================
+
+INSERT INTO asignaciones
+(cliente_id, rutina_id, fecha_inicio, fecha_fin, estado)
+VALUES
+    (1, 2, '2026-07-19', '2026-09-19', 'ACTIVA'),
+    (2, 1, '2026-07-10', '2026-08-10', 'ACTIVA'),
+    (3, 3, '2026-06-01', '2026-07-15', 'FINALIZADA');

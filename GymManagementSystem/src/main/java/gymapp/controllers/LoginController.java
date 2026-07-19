@@ -26,25 +26,35 @@ public class LoginController {
         String password = txtPassword.getText();
 
         try (Connection conn = DatabaseConnection.getConnection()) {
-            String sql = "SELECT rol FROM usuarios WHERE username=? AND password=?";
+            String sql = "SELECT rol FROM usuarios WHERE usuario=? AND password=?";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, usuario);
             stmt.setString(2, password);
 
+            System.out.println(usuario);
+            System.out.println(password);
+
             ResultSet rs = stmt.executeQuery();
+
+            System.out.println("Consulta ejecutada");
 
             if (rs.next()) {
                 String rol = rs.getString("rol");
                 System.out.println("Login correcto: " + rol);
+                System.out.println("Usuario encontrado");
 
-                if ("ENTRENADOR".equals(rol)) {
+                if ("entrenador".equalsIgnoreCase(rol)) {
+
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/gymapp/views/menuEntrenador.fxml"));
                     Stage stage = (Stage) txtUsuario.getScene().getWindow();
                     stage.setScene(new Scene(loader.load()));
-                } else if ("CLIENTE".equals(rol)) {
+
+                } else if ("cliente".equalsIgnoreCase(rol)) {
+
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/gymapp/views/menuCliente.fxml"));
                     Stage stage = (Stage) txtUsuario.getScene().getWindow();
                     stage.setScene(new Scene(loader.load()));
+
                 }
             } else {
                 System.out.println("Credenciales inválidas");
