@@ -1,22 +1,29 @@
 package gymapp.controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 public class MenuClienteController {
 
     @FXML
-    private void showDatos() {
-        System.out.println("Mostrar datos del cliente");
-    }
-
-    @FXML
-    private void showRutina() {
-        System.out.println("Mostrar rutina del cliente");
-    }
-
-    @FXML
     private void logout() {
-        System.out.println("Cerrar sesión");
-        // Regresar al login.fxml
+
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/gymapp/views/login.fxml"));
+
+            Stage stage = (Stage) javafx.stage.Window.getWindows().filtered(w -> w.isShowing()).get(0);
+
+            stage.setScene(new Scene(loader.load()));
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
     }
+
 }

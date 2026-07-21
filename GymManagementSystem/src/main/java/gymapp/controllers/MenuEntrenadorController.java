@@ -9,12 +9,12 @@ public class MenuEntrenadorController {
 
     @FXML
     private void openClientes() {
-        abrirVentana("/gymapp/views/clientes.fxml", "Gestión de Clientes");
+        abrirVentana("/gymapp/views/gestionClientes.fxml", "Gestión de Clientes");
     }
 
     @FXML
     private void openRutinas() {
-        abrirVentana("/gymapp/views/rutinas.fxml", "Gestión de Rutinas");
+        abrirVentana("/gymapp/views/gestionRutinas.fxml", "Gestión de Rutinas");
     }
 
     @FXML
@@ -28,15 +28,25 @@ public class MenuEntrenadorController {
     }
 
     private void abrirVentana(String rutaFXML, String titulo) {
+
         try {
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaFXML));
-            Scene scene = new Scene(loader.load());
+
             Stage stage = new Stage();
+
             stage.setTitle(titulo);
-            stage.setScene(scene);
+
+            stage.setScene(new Scene(loader.load()));
+
             stage.show();
+
         } catch (Exception e) {
+
             e.printStackTrace();
+
         }
+
     }
+
 }

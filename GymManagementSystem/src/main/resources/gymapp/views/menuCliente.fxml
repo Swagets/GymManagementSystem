@@ -1,12 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gymapp.controllers.MenuClienteController">
+<AnchorPane prefHeight="550.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="gymapp.controllers.MenuClienteController">
+
     <children>
-        <Button text="Mis Datos" layoutX="50" layoutY="50" onAction="#showDatos"/>
-        <Button text="Mi Rutina" layoutX="50" layoutY="100" onAction="#showRutina"/>
-        <Button text="Cerrar Sesión" layoutX="50" layoutY="150" onAction="#logout"/>
+
+        <Label layoutX="175.0" layoutY="20.0" text="MENÚ DEL CLIENTE">
+            <font>
+                <Font size="22"/>
+            </font>
+        </Label>
+
+        <Label layoutX="245.0" layoutY="60.0" text="Bienvenido"/>
+
+        <Label fx:id="lblBienvenida"
+               layoutX="210.0"
+               layoutY="85.0"
+               text=""
+               style="-fx-font-size:16px; -fx-font-weight:bold;"/>
+
+        <Separator layoutX="20.0" layoutY="125.0" prefWidth="560.0"/>
+
+        <Label layoutX="190.0" layoutY="140.0" text="DATOS PERSONALES">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Label>
+
+        <Label layoutX="60.0" layoutY="180.0" text="Nombre:"/>
+        <Label fx:id="lblNombre" layoutX="180.0" layoutY="180.0" text=""/>
+
+        <Label layoutX="60.0" layoutY="210.0" text="Edad:"/>
+        <Label fx:id="lblEdad" layoutX="180.0" layoutY="210.0" text=""/>
+
+        <Label layoutX="60.0" layoutY="240.0" text="Peso:"/>
+        <Label fx:id="lblPeso" layoutX="180.0" layoutY="240.0" text=""/>
+
+        <Separator layoutX="20.0" layoutY="285.0" prefWidth="560.0"/>
+
+        <Label layoutX="190.0" layoutY="300.0" text="RUTINA ASIGNADA">
+            <font>
+                <Font size="16"/>
+            </font>
+        </Label>
+
+        <Label layoutX="60.0" layoutY="340.0" text="Rutina:"/>
+        <Label fx:id="lblRutina" layoutX="180.0" layoutY="340.0" text=""/>
+
+        <Label layoutX="60.0" layoutY="370.0" text="Objetivo:"/>
+        <Label fx:id="lblObjetivo" layoutX="180.0" layoutY="370.0" text=""/>
+
+        <Label layoutX="60.0" layoutY="400.0" text="Duración:"/>
+        <Label fx:id="lblDuracion" layoutX="180.0" layoutY="400.0" text=""/>
+
+        <Label layoutX="60.0" layoutY="430.0" text="Fecha Inicio:"/>
+        <Label fx:id="lblInicio" layoutX="180.0" layoutY="430.0" text=""/>
+
+        <Label layoutX="60.0" layoutY="460.0" text="Fecha Fin:"/>
+        <Label fx:id="lblFin" layoutX="180.0" layoutY="460.0" text=""/>
+
+        <Label layoutX="60.0" layoutY="490.0" text="Estado:"/>
+        <Label fx:id="lblEstado" layoutX="180.0" layoutY="490.0" text=""/>
+
+        <Button layoutX="450.0"
+                layoutY="505.0"
+                mnemonicParsing="false"
+                text="Cerrar Sesión"
+                onAction="#logout"/>
+
     </children>
+
 </AnchorPane>

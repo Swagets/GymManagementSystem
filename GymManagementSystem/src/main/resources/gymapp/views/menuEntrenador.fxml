@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gymapp.controllers.MenuEntrenadorController">
+<AnchorPane prefHeight="329.0" prefWidth="281.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="gymapp.controllers.MenuEntrenadorController">
     <children>
-        <Button text="Gestión de Clientes" layoutX="50" layoutY="50" onAction="#openClientes"/>
-        <Button text="Gestión de Rutinas" layoutX="50" layoutY="100" onAction="#openRutinas"/>
-        <Button text="Asignación de Rutinas" layoutX="50" layoutY="150" onAction="#openAsignaciones"/>
-        <Button text="Cerrar Sesión" layoutX="50" layoutY="200" onAction="#logout"/>
+        <Button layoutX="27.0" layoutY="126.0" onAction="#openClientes" text="Gestión de Clientes" />
+        <Button layoutX="27.0" layoutY="176.0" onAction="#openRutinas" text="Gestión de Rutinas" />
+        <Button layoutX="27.0" layoutY="226.0" onAction="#openAsignaciones" text="Asignación de Rutinas" />
+        <Button layoutX="27.0" layoutY="276.0" onAction="#logout" text="Cerrar Sesión" />
+      <Label layoutX="77.0" layoutY="21.0" text="MENU ENTRENADOR" />
+      <Label layoutX="27.0" layoutY="60.0" text="Bienvenido Entrenador" />
     </children>
 </AnchorPane>
