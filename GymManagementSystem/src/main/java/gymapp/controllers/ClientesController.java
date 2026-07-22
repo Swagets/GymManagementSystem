@@ -2,6 +2,7 @@ package gymapp.controllers;
 
 import gymapp.model.Cliente;
 import gymapp.utils.DatabaseConnection;
+import org.mindrot.jbcrypt.BCrypt;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -217,9 +218,15 @@ public class ClientesController {
             );
 
 
+            String passwordHash = BCrypt.hashpw(
+                    txtPassword.getText(),
+                    BCrypt.gensalt()
+            );
+
+
             psUsuario.setString(
                     2,
-                    txtPassword.getText()
+                    passwordHash
             );
 
 

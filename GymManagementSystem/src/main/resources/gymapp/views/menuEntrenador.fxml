@@ -3,14 +3,87 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="329.0" prefWidth="281.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/26" fx:controller="gymapp.controllers.MenuEntrenadorController">
+<AnchorPane prefHeight="400.0" prefWidth="400.0"
+            xmlns:fx="http://javafx.com/fxml/1"
+            xmlns="http://javafx.com/javafx/21"
+            fx:controller="gymapp.controllers.MenuEntrenadorController"
+            style="-fx-background-color:#121212;">
+
     <children>
-        <Button layoutX="27.0" layoutY="126.0" onAction="#openClientes" text="Gestión de Clientes" />
-        <Button layoutX="27.0" layoutY="176.0" onAction="#openRutinas" text="Gestión de Rutinas" />
-        <Button layoutX="27.0" layoutY="226.0" onAction="#openAsignaciones" text="Asignación de Rutinas" />
-        <Button layoutX="27.0" layoutY="276.0" onAction="#logout" text="Cerrar Sesión" />
-      <Label layoutX="77.0" layoutY="21.0" text="MENU ENTRENADOR" />
-      <Label layoutX="27.0" layoutY="60.0" text="Bienvenido Entrenador" />
+
+        <VBox layoutX="50"
+              layoutY="40"
+              prefWidth="300"
+              prefHeight="320"
+              spacing="20"
+              alignment="CENTER"
+              style="
+              -fx-background-color:#1E1E1E;
+              -fx-background-radius:15;
+              -fx-padding:30;
+              -fx-effect:dropshadow(gaussian, black, 15, 0.5, 0, 5);">
+
+
+            <Label text="MENU ENTRENADOR"
+                   style="
+                   -fx-text-fill:#E63946;
+                   -fx-font-size:22px;
+                   -fx-font-weight:bold;"/>
+
+
+            <Label text="Bienvenido Entrenador"
+                   style="
+                   -fx-text-fill:white;
+                   -fx-font-size:16px;"/>
+
+
+            <Button text="Gestión de Clientes"
+                    prefWidth="220"
+                    onAction="#openClientes"
+                    style="
+                    -fx-background-color:#E63946;
+                    -fx-text-fill:white;
+                    -fx-font-weight:bold;
+                    -fx-background-radius:8;
+                    -fx-cursor:hand;"/>
+
+
+            <Button text="Gestión de Rutinas"
+                    prefWidth="220"
+                    onAction="#openRutinas"
+                    style="
+                    -fx-background-color:#E63946;
+                    -fx-text-fill:white;
+                    -fx-font-weight:bold;
+                    -fx-background-radius:8;
+                    -fx-cursor:hand;"/>
+
+
+            <Button text="Asignación de Rutinas"
+                    prefWidth="220"
+                    onAction="#openAsignaciones"
+                    style="
+                    -fx-background-color:#E63946;
+                    -fx-text-fill:white;
+                    -fx-font-weight:bold;
+                    -fx-background-radius:8;
+                    -fx-cursor:hand;"/>
+
+
+            <Button text="Cerrar Sesión"
+                    prefWidth="220"
+                    onAction="#logout"
+                    style="
+                    -fx-background-color:#333333;
+                    -fx-text-fill:white;
+                    -fx-font-weight:bold;
+                    -fx-background-radius:8;
+                    -fx-cursor:hand;"/>
+
+        </VBox>
+
     </children>
+
 </AnchorPane>

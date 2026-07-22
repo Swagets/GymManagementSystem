@@ -33,51 +33,64 @@ public class LoginController {
 
         try (Connection conn = DatabaseConnection.getConnection()) {
 
-            String sql = "SELECT id, rol FROM usuarios WHERE usuario=? AND password=?";
+            // Buscamos solamente por usuario
+            String sql = "SELECT id, rol, password FROM usuarios WHERE usuario=?";
 
             PreparedStatement stmt = conn.prepareStatement(sql);
 
             stmt.setString(1, usuario);
-            stmt.setString(2, password);
-
 
             ResultSet rs = stmt.executeQuery();
 
 
             if (rs.next()) {
 
-                // Guardamos el id del usuario conectado
-                usuarioIdActual = rs.getInt("id");
-
-                String rol = rs.getString("rol");
+                String passwordBD = rs.getString("password");
 
 
-                System.out.println("Login correcto");
-                System.out.println("Usuario ID: " + usuarioIdActual);
-                System.out.println("Rol: " + rol);
+                // Verifica la contraseña usando BCrypt
+                if (BCrypt.checkpw(password, passwordBD)) {
 
 
-                Stage stage = (Stage) txtUsuario.getScene().getWindow();
+                    // Guardamos el id del usuario conectado
+                    usuarioIdActual = rs.getInt("id");
+
+                    String rol = rs.getString("rol");
 
 
-                if ("entrenador".equalsIgnoreCase(rol)) {
+                    System.out.println("Login correcto");
+                    System.out.println("Usuario ID: " + usuarioIdActual);
+                    System.out.println("Rol: " + rol);
 
 
-                    FXMLLoader loader = new FXMLLoader(
-                            getClass().getResource("/gymapp/views/menuEntrenador.fxml")
-                    );
-
-                    stage.setScene(new Scene(loader.load()));
+                    Stage stage = (Stage) txtUsuario.getScene().getWindow();
 
 
-                } else if ("cliente".equalsIgnoreCase(rol)) {
+                    if ("entrenador".equalsIgnoreCase(rol)) {
 
 
-                    FXMLLoader loader = new FXMLLoader(
-                            getClass().getResource("/gymapp/views/menuCliente.fxml")
-                    );
+                        FXMLLoader loader = new FXMLLoader(
+                                getClass().getResource("/gymapp/views/menuEntrenador.fxml")
+                        );
 
-                    stage.setScene(new Scene(loader.load()));
+                        stage.setScene(new Scene(loader.load()));
+
+
+                    } else if ("cliente".equalsIgnoreCase(rol)) {
+
+
+                        FXMLLoader loader = new FXMLLoader(
+                                getClass().getResource("/gymapp/views/menuCliente.fxml")
+                        );
+
+                        stage.setScene(new Scene(loader.load()));
+
+                    }
+
+
+                } else {
+
+                    System.out.println("Usuario o contraseña incorrectos");
 
                 }
 

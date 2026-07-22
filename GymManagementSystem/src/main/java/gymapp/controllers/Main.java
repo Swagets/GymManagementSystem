@@ -13,7 +13,7 @@ public class Main extends Application {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/gymapp/views/login.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 400, 200);
+        Scene scene = new Scene(fxmlLoader.load(), 500, 400);
         primaryStage.setTitle("Gym Management System");
         primaryStage.setScene(scene);
         primaryStage.show();

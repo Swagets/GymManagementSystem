@@ -2,15 +2,76 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="gymapp.controllers.LoginController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="gymapp.controllers.LoginController"
+            style="-fx-background-color: #121212;">
+
     <children>
-        <Label text="Usuario:" layoutX="50" layoutY="50"/>
-        <TextField fx:id="txtUsuario" layoutX="150" layoutY="50"/>
 
-        <Label text="Contraseña:" layoutX="50" layoutY="100"/>
-        <PasswordField fx:id="txtPassword" layoutX="150" layoutY="100"/>
+        <VBox layoutX="80"
+              layoutY="40"
+              prefWidth="300"
+              prefHeight="280"
+              spacing="20"
+              alignment="CENTER"
+              style="
+              -fx-background-color: #1E1E1E;
+              -fx-background-radius: 15;
+              -fx-padding: 30;
+              -fx-effect: dropshadow(gaussian, black, 15, 0.5, 0, 5);">
 
-        <Button text="Ingresar" layoutX="150" layoutY="150" onAction="#handleLogin"/>
+            <Label text="GYM MANAGEMENT"
+                   style="
+                   -fx-text-fill: #E63946;
+                   -fx-font-size: 22px;
+                   -fx-font-weight: bold;"/>
+
+
+            <Label text="Inicio de sesión"
+                   style="
+                   -fx-text-fill: white;
+                   -fx-font-size: 16px;"/>
+
+
+            <TextField fx:id="txtUsuario"
+                       promptText="Usuario"
+                       prefWidth="220"
+                       style="
+                       -fx-background-color: #2B2B2B;
+                       -fx-text-fill: white;
+                       -fx-prompt-text-fill: #AAAAAA;
+                       -fx-background-radius: 8;
+                       -fx-border-color: #E63946;
+                       -fx-border-radius: 8;"/>
+
+
+            <PasswordField fx:id="txtPassword"
+                           promptText="Contraseña"
+                           prefWidth="220"
+                           style="
+                           -fx-background-color: #2B2B2B;
+                           -fx-text-fill: white;
+                           -fx-prompt-text-fill: #AAAAAA;
+                           -fx-background-radius: 8;
+                           -fx-border-color: #E63946;
+                           -fx-border-radius: 8;"/>
+
+
+            <Button text="Ingresar"
+                    prefWidth="220"
+                    onAction="#handleLogin"
+                    style="
+                    -fx-background-color: #E63946;
+                    -fx-text-fill: white;
+                    -fx-font-size: 14px;
+                    -fx-font-weight: bold;
+                    -fx-background-radius: 8;
+                    -fx-cursor: hand;"/>
+
+        </VBox>
+
     </children>
+
 </AnchorPane>

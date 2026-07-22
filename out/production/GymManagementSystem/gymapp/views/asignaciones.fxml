@@ -1,125 +1,261 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.*?>
 
-<Pane prefHeight="520.0"
+<Pane prefHeight="550.0"
       prefWidth="700.0"
-      xmlns="http://javafx.com/javafx/21"
+      xmlns="http://javafx.com/javafx/26"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="gymapp.controllers.AsignacionesController">
+      fx:controller="gymapp.controllers.AsignacionesController"
+      style="-fx-background-color:#121212;">
 
     <children>
 
-        <Label layoutX="235.0"
-               layoutY="20.0"
-               text="ASIGNACIÓN DE RUTINAS"
-               style="-fx-font-size:18px; -fx-font-weight:bold;"/>
 
-        <Label layoutX="40.0"
-               layoutY="70.0"
-               text="Cliente"/>
+        <VBox layoutX="25"
+              layoutY="20"
+              prefWidth="650"
+              prefHeight="510"
+              spacing="15"
+              style="
+              -fx-background-color:#1E1E1E;
+              -fx-background-radius:15;
+              -fx-padding:25;
+              -fx-effect:dropshadow(gaussian, black, 15, 0.5, 0, 5);">
 
-        <ComboBox fx:id="cmbCliente"
-                  layoutX="150.0"
-                  layoutY="65.0"
-                  prefWidth="220"/>
 
-        <Label layoutX="40.0"
-               layoutY="110.0"
-               text="Rutina"/>
+            <Label text="ASIGNACIÓN DE RUTINAS"
+                   alignment="CENTER"
+                   maxWidth="650"
+                   style="
+                   -fx-text-fill:#E63946;
+                   -fx-font-size:24px;
+                   -fx-font-weight:bold;"/>
 
-        <ComboBox fx:id="cmbRutina"
-                  layoutX="150.0"
-                  layoutY="105.0"
-                  prefWidth="220"/>
 
-        <Label layoutX="40.0"
-               layoutY="150.0"
-               text="Fecha Inicio"/>
 
-        <DatePicker fx:id="dpInicio"
-                    layoutX="150.0"
-                    layoutY="145.0"/>
+            <HBox spacing="50">
 
-        <Label layoutX="40.0"
-               layoutY="190.0"
-               text="Fecha Fin"/>
 
-        <DatePicker fx:id="dpFin"
-                    layoutX="150.0"
-                    layoutY="185.0"/>
+                <VBox spacing="10">
 
-        <Label layoutX="40.0"
-               layoutY="230.0"
-               text="Estado"/>
 
-        <ComboBox fx:id="cmbEstado"
-                  layoutX="150.0"
-                  layoutY="225.0"
-                  prefWidth="220"/>
+                    <Label text="Cliente"
+                           style="-fx-text-fill:#AAAAAA;"/>
 
-        <Button layoutX="60.0"
-                layoutY="275.0"
-                text="Asignar"
-                onAction="#guardarAsignacion"/>
+                    <ComboBox fx:id="cmbCliente"
+                              prefWidth="220"
+                              promptText="Seleccione cliente"
+                              style="
+                              -fx-background-color:#2B2B2B;
+                              -fx-text-fill:white;
+                              -fx-border-color:#E63946;
+                              -fx-border-radius:8;
+                              -fx-background-radius:8;"/>
 
-        <Button layoutX="165.0"
-                layoutY="275.0"
-                text="Actualizar"
-                onAction="#actualizarAsignacion"/>
 
-        <Button layoutX="290.0"
-                layoutY="275.0"
-                text="Eliminar"
-                onAction="#eliminarAsignacion"/>
 
-        <Button layoutX="395.0"
-                layoutY="275.0"
-                text="Limpiar"
-                onAction="#limpiarCampos"/>
+                    <Label text="Rutina"
+                           style="-fx-text-fill:#AAAAAA;"/>
 
-        <Label layoutX="255.0"
-               layoutY="325.0"
-               text="TABLA DE ASIGNACIONES"
-               style="-fx-font-weight:bold;"/>
 
-        <TableView fx:id="tablaAsignaciones"
-                   layoutX="20.0"
-                   layoutY="350.0"
-                   prefHeight="150.0"
-                   prefWidth="660.0">
+                    <ComboBox fx:id="cmbRutina"
+                              prefWidth="220"
+                              promptText="Seleccione rutina"
+                              style="
+                              -fx-background-color:#2B2B2B;
+                              -fx-text-fill:white;
+                              -fx-border-color:#E63946;
+                              -fx-border-radius:8;
+                              -fx-background-radius:8;"/>
 
-            <columns>
 
-                <TableColumn fx:id="colId"
-                             text="ID"
-                             prefWidth="50"/>
 
-                <TableColumn fx:id="colCliente"
-                             text="Cliente"
-                             prefWidth="140"/>
+                    <Label text="Estado"
+                           style="-fx-text-fill:#AAAAAA;"/>
 
-                <TableColumn fx:id="colRutina"
-                             text="Rutina"
-                             prefWidth="140"/>
 
-                <TableColumn fx:id="colInicio"
-                             text="Inicio"
-                             prefWidth="100"/>
+                    <ComboBox fx:id="cmbEstado"
+                              prefWidth="220"
+                              promptText="Estado"
+                              style="
+                              -fx-background-color:#2B2B2B;
+                              -fx-text-fill:white;
+                              -fx-border-color:#E63946;
+                              -fx-border-radius:8;
+                              -fx-background-radius:8;"/>
 
-                <TableColumn fx:id="colFin"
-                             text="Fin"
-                             prefWidth="100"/>
 
-                <TableColumn fx:id="colEstado"
-                             text="Estado"
-                             prefWidth="120"/>
+                </VBox>
 
-            </columns>
 
-        </TableView>
+
+
+
+                <VBox spacing="10">
+
+
+                    <Label text="Fecha Inicio"
+                           style="-fx-text-fill:#AAAAAA;"/>
+
+
+                    <DatePicker fx:id="dpInicio"
+                                prefWidth="220"
+                                style="
+                                -fx-background-color:#2B2B2B;
+                                -fx-border-color:#E63946;
+                                -fx-border-radius:8;"/>
+
+
+
+                    <Label text="Fecha Fin"
+                           style="-fx-text-fill:#AAAAAA;"/>
+
+
+                    <DatePicker fx:id="dpFin"
+                                prefWidth="220"
+                                style="
+                                -fx-background-color:#2B2B2B;
+                                -fx-border-color:#E63946;
+                                -fx-border-radius:8;"/>
+
+
+                </VBox>
+
+
+            </HBox>
+
+
+
+
+            <HBox spacing="15">
+
+
+                <Button text="Asignar"
+                        onAction="#guardarAsignacion"
+                        prefWidth="120"
+                        style="
+                        -fx-background-color:#E63946;
+                        -fx-text-fill:white;
+                        -fx-font-weight:bold;
+                        -fx-background-radius:8;
+                        -fx-cursor:hand;"/>
+
+
+
+                <Button text="Actualizar"
+                        onAction="#actualizarAsignacion"
+                        prefWidth="120"
+                        style="
+                        -fx-background-color:#E63946;
+                        -fx-text-fill:white;
+                        -fx-font-weight:bold;
+                        -fx-background-radius:8;
+                        -fx-cursor:hand;"/>
+
+
+
+                <Button text="Eliminar"
+                        onAction="#eliminarAsignacion"
+                        prefWidth="120"
+                        style="
+                        -fx-background-color:#333333;
+                        -fx-text-fill:white;
+                        -fx-font-weight:bold;
+                        -fx-background-radius:8;
+                        -fx-cursor:hand;"/>
+
+
+
+                <Button text="Limpiar"
+                        onAction="#limpiarCampos"
+                        prefWidth="120"
+                        style="
+                        -fx-background-color:#333333;
+                        -fx-text-fill:white;
+                        -fx-font-weight:bold;
+                        -fx-background-radius:8;
+                        -fx-cursor:hand;"/>
+
+
+            </HBox>
+
+
+
+
+            <Separator/>
+
+
+
+            <Label text="TABLA DE ASIGNACIONES"
+                   alignment="CENTER"
+                   maxWidth="650"
+                   style="
+                   -fx-text-fill:white;
+                   -fx-font-size:17px;
+                   -fx-font-weight:bold;"/>
+
+
+
+
+            <TableView fx:id="tablaAsignaciones"
+                       prefHeight="150"
+                       prefWidth="650"
+                       style="
+                       -fx-background-color:#2B2B2B;
+                       -fx-border-color:#E63946;
+                       -fx-border-radius:8;">
+
+
+                <columns>
+
+
+                    <TableColumn fx:id="colId"
+                                 text="ID"
+                                 prefWidth="50"/>
+
+
+
+                    <TableColumn fx:id="colCliente"
+                                 text="Cliente"
+                                 prefWidth="140"/>
+
+
+
+                    <TableColumn fx:id="colRutina"
+                                 text="Rutina"
+                                 prefWidth="140"/>
+
+
+
+                    <TableColumn fx:id="colInicio"
+                                 text="Inicio"
+                                 prefWidth="100"/>
+
+
+
+                    <TableColumn fx:id="colFin"
+                                 text="Fin"
+                                 prefWidth="100"/>
+
+
+
+                    <TableColumn fx:id="colEstado"
+                                 text="Estado"
+                                 prefWidth="120"/>
+
+
+                </columns>
+
+
+            </TableView>
+
+
+        </VBox>
+
 
     </children>
+
 
 </Pane>

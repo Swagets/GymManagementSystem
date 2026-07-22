@@ -1,53 +1,171 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<Pane prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gymapp.controllers.RutinasController">
+<Pane prefHeight="550.0" prefWidth="650.0"
+      xmlns="http://javafx.com/javafx/26"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="gymapp.controllers.RutinasController"
+      style="-fx-background-color:#121212;">
 
     <children>
 
-        <Label layoutX="200.0" layoutY="20.0" style="-fx-font-size:18px; -fx-font-weight:bold;" text="GESTIÓN DE RUTINAS" />
+        <VBox layoutX="25"
+              layoutY="20"
+              prefWidth="600"
+              prefHeight="510"
+              spacing="15"
+              style="
+              -fx-background-color:#1E1E1E;
+              -fx-background-radius:15;
+              -fx-padding:25;
+              -fx-effect:dropshadow(gaussian, black, 15, 0.5, 0, 5);">
 
-        <Label layoutX="30.0" layoutY="70.0" text="Nombre" />
 
-        <TextField fx:id="txtNombre" layoutX="30.0" layoutY="90.0" prefWidth="220" />
+            <Label text="GESTIÓN DE RUTINAS"
+                   alignment="CENTER"
+                   maxWidth="600"
+                   style="
+                   -fx-text-fill:#E63946;
+                   -fx-font-size:24px;
+                   -fx-font-weight:bold;"/>
 
-        <Label layoutX="30.0" layoutY="130.0" text="Objetivo" />
 
-        <TextField fx:id="txtObjetivo" layoutX="30.0" layoutY="150.0" prefWidth="220" />
+            <HBox spacing="15">
 
-        <Label layoutX="30.0" layoutY="190.0" text="Duración (días)" />
+                <VBox spacing="8">
 
-        <TextField fx:id="txtDuracion" layoutX="30.0" layoutY="210.0" prefWidth="100" />
+                    <Label text="Nombre"
+                           style="-fx-text-fill:#AAAAAA;"/>
 
-        <Button layoutX="30.0" layoutY="260.0" onAction="#guardarRutina" text="Guardar" />
+                    <TextField fx:id="txtNombre"
+                               prefWidth="230"
+                               promptText="Nombre de rutina"
+                               style="
+                               -fx-background-color:#2B2B2B;
+                               -fx-text-fill:white;
+                               -fx-prompt-text-fill:#888888;
+                               -fx-background-radius:8;
+                               -fx-border-color:#E63946;
+                               -fx-border-radius:8;"/>
 
-        <Button layoutX="120.0" layoutY="260.0" onAction="#actualizarRutina" text="Actualizar" />
 
-        <Button layoutX="235.0" layoutY="260.0" onAction="#eliminarRutina" text="Eliminar" />
+                    <Label text="Objetivo"
+                           style="-fx-text-fill:#AAAAAA;"/>
 
-        <Label layoutX="180.0" layoutY="310.0" style="-fx-font-weight:bold;" text="Tabla de Rutinas" />
+                    <TextField fx:id="txtObjetivo"
+                               prefWidth="230"
+                               promptText="Objetivo"
+                               style="
+                               -fx-background-color:#2B2B2B;
+                               -fx-text-fill:white;
+                               -fx-prompt-text-fill:#888888;
+                               -fx-background-radius:8;
+                               -fx-border-color:#E63946;
+                               -fx-border-radius:8;"/>
 
-        <TableView fx:id="tablaRutinas" layoutX="20.0" layoutY="340.0" prefHeight="140.0" prefWidth="560.0">
 
-            <columns>
+                    <Label text="Duración (días)"
+                           style="-fx-text-fill:#AAAAAA;"/>
 
-                <TableColumn fx:id="colId" prefWidth="60" text="ID" />
+                    <TextField fx:id="txtDuracion"
+                               prefWidth="120"
+                               promptText="Días"
+                               style="
+                               -fx-background-color:#2B2B2B;
+                               -fx-text-fill:white;
+                               -fx-prompt-text-fill:#888888;
+                               -fx-background-radius:8;
+                               -fx-border-color:#E63946;
+                               -fx-border-radius:8;"/>
 
-                <TableColumn fx:id="colNombre" prefWidth="170" text="Nombre" />
+                </VBox>
 
-                <TableColumn fx:id="colObjetivo" prefWidth="210" text="Objetivo" />
+            </HBox>
 
-                <TableColumn fx:id="colDuracion" prefWidth="110" text="Duración" />
 
-            </columns>
+            <HBox spacing="15">
 
-        </TableView>
+                <Button text="Guardar"
+                        onAction="#guardarRutina"
+                        prefWidth="120"
+                        style="
+                        -fx-background-color:#E63946;
+                        -fx-text-fill:white;
+                        -fx-font-weight:bold;
+                        -fx-background-radius:8;
+                        -fx-cursor:hand;"/>
+
+
+                <Button text="Actualizar"
+                        onAction="#actualizarRutina"
+                        prefWidth="120"
+                        style="
+                        -fx-background-color:#E63946;
+                        -fx-text-fill:white;
+                        -fx-font-weight:bold;
+                        -fx-background-radius:8;
+                        -fx-cursor:hand;"/>
+
+
+                <Button text="Eliminar"
+                        onAction="#eliminarRutina"
+                        prefWidth="120"
+                        style="
+                        -fx-background-color:#333333;
+                        -fx-text-fill:white;
+                        -fx-font-weight:bold;
+                        -fx-background-radius:8;
+                        -fx-cursor:hand;"/>
+
+            </HBox>
+
+
+            <Separator/>
+
+
+            <Label text="TABLA DE RUTINAS"
+                   alignment="CENTER"
+                   maxWidth="600"
+                   style="
+                   -fx-text-fill:white;
+                   -fx-font-size:17px;
+                   -fx-font-weight:bold;"/>
+
+
+            <TableView fx:id="tablaRutinas"
+                       prefHeight="170"
+                       prefWidth="560"
+                       style="
+                       -fx-background-color:#2B2B2B;
+                       -fx-border-color:#E63946;
+                       -fx-border-radius:8;">
+
+                <columns>
+
+                    <TableColumn fx:id="colId"
+                                 prefWidth="60"
+                                 text="ID"/>
+
+                    <TableColumn fx:id="colNombre"
+                                 prefWidth="170"
+                                 text="Nombre"/>
+
+                    <TableColumn fx:id="colObjetivo"
+                                 prefWidth="210"
+                                 text="Objetivo"/>
+
+                    <TableColumn fx:id="colDuracion"
+                                 prefWidth="110"
+                                 text="Duración"/>
+
+                </columns>
+
+            </TableView>
+
+
+        </VBox>
 
     </children>
 
