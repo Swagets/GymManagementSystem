@@ -1,14 +1,16 @@
 -- ==========================================
 -- Gym Management System
--- Base de datos inicial
+-- Base de datos con usuarios relacionados
 -- ==========================================
 
 DROP DATABASE IF EXISTS gymdb;
 CREATE DATABASE gymdb;
 USE gymdb;
 
+
 -- ==========================================
 -- Tabla de usuarios
+-- Maneja el acceso al sistema
 -- ==========================================
 
 CREATE TABLE usuarios (
@@ -18,16 +20,24 @@ CREATE TABLE usuarios (
                           rol ENUM('cliente','entrenador') NOT NULL
 );
 
+
 -- ==========================================
 -- Tabla de clientes
+-- Información personal del cliente
+-- Relacionada con usuarios
 -- ==========================================
 
 CREATE TABLE clientes (
                           id INT AUTO_INCREMENT PRIMARY KEY,
                           nombre VARCHAR(100) NOT NULL,
                           edad INT NOT NULL,
-                          peso DECIMAL(5,2) NOT NULL
+                          peso DECIMAL(5,2) NOT NULL,
+
+                          usuario_id INT NOT NULL,
+
+                          FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
+
 
 -- ==========================================
 -- Tabla de rutinas
@@ -40,8 +50,10 @@ CREATE TABLE rutinas (
                          duracion INT NOT NULL
 );
 
+
 -- ==========================================
--- NUEVA TABLA: asignaciones
+-- Tabla de asignaciones
+-- Relaciona clientes con rutinas
 -- ==========================================
 
 CREATE TABLE asignaciones (
@@ -62,35 +74,76 @@ CREATE TABLE asignaciones (
                               FOREIGN KEY (rutina_id) REFERENCES rutinas(id)
 );
 
--- ==========================================
--- Datos iniciales
--- ==========================================
-
-INSERT INTO usuarios (usuario, password, rol)
-VALUES
-    ('cliente', '1234', 'cliente'),
-    ('entrenador', '1234', 'entrenador');
-
-INSERT INTO clientes (nombre, edad, peso)
-VALUES
-    ('Joel Arevalo', 20, 75.50),
-    ('Carlos Perez', 24, 82.00),
-    ('Maria Lopez', 21, 60.30),
-    ('Luis Gomez', 28, 90.10);
-
-INSERT INTO rutinas (nombre, objetivo, duracion)
-VALUES
-    ('Cardio Basico', 'Perder peso', 30),
-    ('Hipertrofia', 'Ganar masa muscular', 60),
-    ('Funcional', 'Mejorar resistencia', 45);
 
 -- ==========================================
--- Datos de prueba para asignaciones
+-- USUARIO INICIAL DEL SISTEMA
+-- Será el entrenador/admin
+-- ==========================================
+
+INSERT INTO usuarios(usuario,password,rol)
+VALUES
+    ('admin','1234','entrenador');
+
+
+-- ==========================================
+-- CLIENTE DE PRUEBA
+-- Primero se crea su usuario
+-- ==========================================
+
+INSERT INTO usuarios(usuario,password,rol)
+VALUES
+    ('joel','1234','cliente');
+
+
+-- ==========================================
+-- Luego se crea su información personal
+-- Relacionada con usuario_id = 2
+-- ==========================================
+
+INSERT INTO clientes(nombre,edad,peso,usuario_id)
+VALUES
+    ('Joel Arevalo',20,75.50,2);
+
+
+-- ==========================================
+-- Otros clientes sin cuenta todavía
+-- Estos luego los creará el entrenador
+-- ==========================================
+
+INSERT INTO usuarios(usuario,password,rol)
+VALUES
+    ('carlos','1234','cliente'),
+    ('maria','1234','cliente');
+
+
+INSERT INTO clientes(nombre,edad,peso,usuario_id)
+VALUES
+    ('Carlos Perez',24,82.00,3),
+    ('Maria Lopez',21,60.30,4);
+
+
+
+-- ==========================================
+-- Rutinas iniciales
+-- ==========================================
+
+INSERT INTO rutinas(nombre,objetivo,duracion)
+VALUES
+    ('Cardio Basico','Perder peso',30),
+    ('Hipertrofia','Ganar masa muscular',60),
+    ('Funcional','Mejorar resistencia',45);
+
+
+
+-- ==========================================
+-- Asignaciones de prueba
 -- ==========================================
 
 INSERT INTO asignaciones
-(cliente_id, rutina_id, fecha_inicio, fecha_fin, estado)
+(cliente_id,rutina_id,fecha_inicio,fecha_fin,estado)
 VALUES
-    (1, 2, '2026-07-19', '2026-09-19', 'ACTIVA'),
-    (2, 1, '2026-07-10', '2026-08-10', 'ACTIVA'),
-    (3, 3, '2026-06-01', '2026-07-15', 'FINALIZADA');
+    (1,2,'2026-07-19','2026-09-19','ACTIVA'),
+
+    (2,1,'2026-07-10','2026-08-10','ACTIVA'),
+
+    (3,3,'2026-06-01','2026-07-15','FINALIZADA');
